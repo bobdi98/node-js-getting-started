@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="jpa_postgres">
+		<class>com.sfdo.ngp.model.Cause</class>
+		<class>com.sfdo.ngp.model.Identity</class>
+		<class>com.sfdo.ngp.model.Nonprofit</class>
+		<class>com.sfdo.ngp.model.OrgIdentity</class>
+		<class>com.sfdo.ngp.model.Organization</class>
+		<class>com.sfdo.ngp.model.Person</class>
+		<class>com.sfdo.ngp.model.PersonPrefCause</class>
+		<class>com.sfdo.ngp.model.PersonPrefCausePK</class>
+		<class>com.sfdo.ngp.model.PersonPrefNonprofit</class>
+		<class>com.sfdo.ngp.model.PersonPrefNonprofitPK</class>
+		<class>com.sfdo.ngp.model.Processor</class>
+		<class>com.sfdo.ngp.model.WorkplaceAccountManager</class>
+		<class>com.sfdo.ngp.model.WorkplacePartner</class>
+	</persistence-unit>
+</persistence>
