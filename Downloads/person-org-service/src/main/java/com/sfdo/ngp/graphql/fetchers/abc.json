@@ -1,0 +1,35 @@
+Id 
+salutation VARCHAR(8),
+firstName VARCHAR(80) NOT NULL,
+middleName VARCHAR(80),
+lastName VARCHAR(80) NOT NULL,
+suffix VARCHAR(10),
+nickName VARCHAR(80),
+city VARCHAR(20) NOT NULL,
+state VARCHAR(20) NOT NULL,
+postalCode VARCHAR(20) NOT NULL,
+postalCodeExt VARCHAR(20),
+personalEmail VARCHAR(80) NOT NULL,
+dateOfBirth DATE,
+gender VARCHAR(10),
+personalPhone VARCHAR(20) NOT NULL,
+addressLine1 VARCHAR(80) NOT NULL,
+addressLine2 VARCHAR(80),
+org_id BIGINT NOT NULL,
+
+private String salutation;
+private String firstName;
+private String middleName;
+private String lastName;
+private String suffix;
+private String nickName;
+private String city;
+private String state;
+private String postalCode;
+private String personalEmail;
+private String gender;
+private String dateOfBirth;
+private String personalPhone;
+private String addressLine1;
+private String addressLine2;
+private String org_id;

@@ -1,0 +1,125 @@
+type Query {
+    persons: [Person!] 
+    person(id: Long!) : Person
+    
+}
+
+type Mutation {
+    createPersonObject(person: PersonDtoInput): Person
+    updatePerson(
+	    Id: Long!
+		salutation: String!
+		firstname: String!
+		middlename: String!
+		lastname: String!
+		suffix: String!
+		nickname: String!
+		city: String!
+		state: String!
+		postalcode: String!
+		personalemail: String!
+		gender: String!
+		personalphone: String!
+		addressline1: String!
+		addressline2: String!): Person
+    deletePerson(personId: Long): Person
+    createPerson(
+		salutation: String!
+		firstname: String!
+		middlename: String!
+		lastname: String!
+		suffix: String!
+		nickname: String!
+		city: String!
+		state: String!
+		postalcode: String!
+		personalemail: String!
+		gender: String!
+		personalphone: String!
+		addressline1: String!
+		addressline2: String!): Person    
+}
+input PersonDtoInput {
+	Id: Long!
+	salutation: String!
+	firstname: String!
+	middlename: String!
+	lastname: String!
+	suffix: String!
+	nickname: String!
+	city: String!
+	state: String!
+	postalcode: String!
+	personalemail: String!
+	gender: String!
+	personalphone: String!
+	addressline1: String!
+	addressline2: String!
+	organization: Organization! 
+	roles: [PersonRole!]! 
+	orgIdentities: [OrgIdentity]! 
+}
+
+type Person {
+	Id: Long!
+	salutation: String!
+	firstname: String!
+	middlename: String!
+	lastname: String!
+	suffix: String!
+	nickname: String!
+	city: String!
+	state: String!
+	postalcode: String!
+	personalemail: String!
+	gender: String!
+	personalphone: String!
+	addressline1: String!
+	addressline2: String!
+	organization: Organization! 
+	roles: [PersonRole!]! 
+	orgIdentities: [OrgIdentity]! 
+}
+
+type PersonRole {
+	Id: PersonRolePK!
+	organization: Organization! 
+}
+
+type PersonRolePK {
+	personId: Long!
+	roleId: Long!
+}
+
+type permission {
+	Id: Long!
+	name: String!
+	description: String!
+}
+
+type OrgIdentity {
+	Id: Long!
+	department: String!
+	empId: String!
+	office: String
+	region: String
+}
+
+type Organization {
+	Id: Long!
+	name: String!
+	dba: String!
+	externalId: String!
+	street: String!
+	street2: String!
+	city: String!
+	state: String!
+	postalCode: String!
+	postalCodeExt: String!
+	country: String!	
+	phone: String!
+	website: String!
+	defaultLanguage: String!
+	defaultCurrency: String!
+	timeZone: String!	
+}
