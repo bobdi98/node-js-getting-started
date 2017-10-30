@@ -1,0 +1,28 @@
+# external micro-service base URLs
+spring:
+  application:
+    name: person-org-graphql
+  datasource:
+    platform: postgreSQL
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 123satya
+  jpa:
+    database: postgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    properties:
+      hibernate:
+        default_schema: ngp
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8080
+data-source:
+  urlUserService: http://localhost:8091
+  urlProductService: http://localhost:8092
+  urlOrderService: http://localhost:8093
+  urlPersonService: http://localhost:8094
+  
+# graphql.schema implementations 'manual' or 'annotations' or 'schema'
+graphql:
+  schema: schema

@@ -1,0 +1,4 @@
+me/roybailey/data/schema/UserDto$UserDtoBuilder.class
+me/roybailey/data/schema/ProductDto$ProductDtoBuilder.class
+me/roybailey/data/schema/OrderItemDto$OrderItemDtoBuilder.class
+me/roybailey/data/schema/OrderDto$OrderDtoBuilder.class

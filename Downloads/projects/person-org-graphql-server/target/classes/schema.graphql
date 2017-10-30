@@ -1,0 +1,280 @@
+type Query {
+    persons: [Person!] 
+    person(id: Long!) : Person
+    organization(id: Long!) : Organization
+    orgIdentities: [OrgIdentity!]
+    orgIdentity(id: Long!): OrgIdentity
+    workplacePartner(id: Long!): WorkplacePartner
+    processor(id: Long!): Processor
+    role(id: Long!): Role
+
+}
+
+type Mutation {
+	createPlatformAdmin(		
+		salutation: String!
+		firstname: String!
+		middlename: String!
+		lastname: String!
+		suffix: String!
+		nickname: String!
+		city: String!
+		state: String!
+		postalcode: String!
+		personalemail: String!
+		gender: String!
+		personalphone: String!
+		addressline1: String!
+		addressline2: String!): Person
+
+	createEmployee(		
+		salutation: String!
+		firstname: String!
+		middlename: String!
+		lastname: String!
+		suffix: String!
+		nickname: String!
+		city: String!
+		state: String!
+		postalcode: String!
+		personalemail: String!
+		gender: String!
+		personalphone: String!
+		addressline1: String!
+		addressline2: String!
+		orgId: Long!
+		roleId: Long!
+		orgIdentity: OrgIdentityDtoInput): Person
+	associateRole(personId: Long!, roleId: Long!, orgId: Long): Person
+    createRole(role: RoleDtoInput): Role
+    createPersonObject(person: PersonDtoInput): Person   
+    createOrgIdentity(
+	department: String!
+	empId: String!
+	employerId: Long!
+	office: String
+	region: String
+	orgId: Long!
+	personId: Long!):OrgIdentity
+	
+    createOrganizationObject(organization: OrganizationDtoInput): Organization
+	createOrganization(	
+		name: String!
+		dba: String!
+		externalId: String
+		street: String!
+		street2: String!
+		city: String!
+		state: String!
+		postalCode: String!
+		postalCodeExt: String!
+		country: String!	
+		phone: String!
+		website: String!
+		defaultLanguage: String!
+		defaultCurrency: String!
+		timeZone: String!
+	): Organization
+   
+   updateOrganization(	
+   		Id: Long!
+		name: String
+		dba: String
+		externalId: String
+		street: String
+		street2: String
+		city: String
+		state: String
+		postalCode: String
+		postalCodeExt: String
+		country: String
+		phone: String
+		website: String
+		defaultLanguage: String
+		defaultCurrency: String
+		timeZone: String
+	): Organization
+  
+
+    updatePerson(
+	    Id: Long!
+		salutation: String
+		firstname: String
+		middlename: String
+		lastname: String
+		suffix: String
+		nickname: String
+		city: String
+		state: String
+		postalcode: String
+		personalemail: String
+		gender: String
+		personalphone: String
+		addressline1: String
+		addressline2: String
+		): Person
+    deletePerson(personId: Long!): Person
+    createPerson(
+		salutation: String!
+		firstname: String!
+		middlename: String!
+		lastname: String!
+		suffix: String!
+		nickname: String!
+		city: String!
+		state: String!
+		postalcode: String!
+		personalemail: String!
+		gender: String!
+		personalphone: String!
+		addressline1: String!
+		addressline2: String!
+		orgIdentity: OrgIdentityDtoInput
+		orgId: Long!): Person    
+
+    createProcessor(
+		activeFlag: String!
+		orgId: Long!
+		stripeConnectId: String!
+		): Processor
+		
+	createWorkplacePartner(
+		orgId: Long!
+		processorId: Long!
+		division: String!
+		reseller: Long!
+		): WorkplacePartner
+}
+
+input PersonDtoInput {
+	id: Long!
+	salutation: String!
+	firstname: String!
+	middlename: String!
+	lastname: String!
+	suffix: String!
+	nickname: String!
+	city: String!
+	state: String!
+	postalcode: String!
+	personalemail: String!
+	gender: String!
+	personalphone: String!
+	addressline1: String!
+	addressline2: String!
+	}
+
+
+type Person {
+	Id: Long!
+	salutation: String!
+	firstname: String!
+	middlename: String!
+	lastname: String!
+	suffix: String!
+	nickname: String!
+	city: String!
+	state: String!
+	postalcode: String!
+	personalemail: String!
+	gender: String!
+	personalphone: String!
+	addressline1: String!
+	addressline2: String!
+}
+type Processor {
+		activeFlag: String!
+		orgId: Long!
+		stripeConnectId: String!
+}
+
+type WorkplacePartner {
+		workplacePartnerId: Long!
+		orgId: Long!
+		processorId: Long!
+		divison: String!
+		reseller: Long!
+}
+
+
+type PersonRole {
+	id: PersonRolePK!
+	organization: Organization! 
+}
+
+type PersonRolePK {
+	personId: Long!
+	roleId: Long!
+}
+
+type permission {
+	Id: Long!
+	name: String!
+	description: String!
+}
+
+type OrgIdentity {
+	Id: Long!
+	department: String!
+	empId: String!
+	office: String
+	region: String
+}
+
+type Role {
+	Id: Long!
+	name: String!
+	description: String!
+	
+}
+
+type Organization {
+	Id: Long!
+	name: String!
+	dba: String!
+	externalId: String!
+	street: String!
+	street2: String!
+	city: String!
+	state: String!
+	postalCode: String!
+	postalCodeExt: String!
+	country: String!	
+	phone: String!
+	website: String!
+	defaultLanguage: String!
+	defaultCurrency: String!
+	timeZone: String!	
+}
+
+input RoleDtoInput {
+	name: String!
+	description: String!
+	
+}
+
+input OrganizationDtoInput {
+	Id: Long!
+	name: String!
+	dba: String!
+	externalId: String!
+	street: String!
+	street2: String!
+	city: String!
+	state: String!
+	postalCode: String!
+	postalCodeExt: String!
+	country: String!	
+	phone: String!
+	website: String!
+	defaultLanguage: String!
+	defaultCurrency: String!
+	timeZone: String!	
+}
+
+input OrgIdentityDtoInput {
+	department: String!
+	empId: String!
+	office: String
+	region: String
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <replaceregexp match="public class" replace="@lombok.Builder&#10;public class" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+  <replaceregexp match="public class" replace="@lombok.NoArgsConstructor&#10;public class" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+  <replaceregexp match="public class" replace="@lombok.AllArgsConstructor&#10;public class" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+  <replaceregexp match="private List" replace="@lombok.Builder.Default&#10;private List" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+  <replaceregexp match="private Map" replace="@lombok.Builder.Default&#10;private Map" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+  <replaceregexp match="([\s(])Date" replace="\1java.time.LocalDateTime" flags="g" byline="true">
+    <fileset includes="**/*Dto.java" dir="/Users/satya.polavarapu/Downloads/person-graphql-master/person-org-graphql-domain/src/main/java"/>
+  </replaceregexp>
+</target>
+</project>

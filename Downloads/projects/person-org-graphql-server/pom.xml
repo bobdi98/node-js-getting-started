@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>person-org-graphql-server</artifactId>
+    <packaging>jar</packaging>
+
+    <name>person-org-graphql-server</name>
+    <description>Simple GraphQL server for serving and aggregating other RESTful API data</description>
+
+    <parent>
+        <groupId>com.sfdo.ngp</groupId>
+        <artifactId>person-org-graphql</artifactId>
+        <version>0.2.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <properties>
+        <graphql-java.version>3.0.0</graphql-java.version>
+        <graphql-java-tools.version>3.0.2</graphql-java-tools.version>
+        <json.schema.source>${basedir}/src/main/resources/schema</json.schema.source>
+        <json.schema.target>${basedir}/src/main/java</json.schema.target>
+    </properties>
+    <dependencies>
+
+        <dependency>
+        	<groupId>com.sfdo.ngp</groupId>
+        	<artifactId>person-org-domain</artifactId>
+        	<version>0.2.0-SNAPSHOT</version>
+        </dependency>
+        
+        <!-- GraphQL -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+            <version>${graphql-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>${graphql-java-tools.version}</version>
+        </dependency>
+	    	<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    </dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    </dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    </dependency>
+
+    </dependencies>
+
+
+
+</project>
